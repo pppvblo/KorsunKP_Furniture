@@ -1,0 +1,118 @@
+﻿<Window x:Class="KorsunKP_Furniture.WindowFolder.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KorsunKP_Furniture.WindowFolder"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Авторизация" 
+        Height="470" Width="810"
+        MinHeight="470" MinWidth="810"
+        MaxHeight="470" MaxWidth="810"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="{x:Null}"
+        Icon="/ResourceFolder/ImageFolder/MainIcon.jpg">
+
+
+    <Border Style="{DynamicResource SecondBorder}"
+            Opacity="0.95"
+            MouseDown="Border_MouseDown">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Margin="15"
+                    CornerRadius="17"
+                    Grid.RowSpan="2">
+                <Border.Background>
+                    <ImageBrush ImageSource="/ResourceFolder/ImageFolder/MainPic.png" Stretch="UniformToFill"/>
+                </Border.Background>
+            </Border>
+
+            <StackPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right" Margin="0 5 10 0">
+                <Image x:Name="CloseBtn"
+                       Source="/ResourceFolder/ImageFolder/CloseWidnowWHITE.png"
+                       Width="20" Height="23" Margin="5 0 5 0"
+                       MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown"/>
+                <Image x:Name="ExitBtn"
+                       Source="/ResourceFolder/ImageFolder/ExitWhite.png"
+                       Width="15" Margin="5 0 15 0"
+                       MouseLeftButtonDown="ExitBtn_MouseLeftButtonDown"/>
+            </StackPanel>
+
+            <Image Source="/ResourceFolder/ImageFolder/LogoAhmed_Vol3.jpg"
+                       Height="50"
+                       Stretch="Uniform"
+                       Margin="268,10,328,410"
+                       Grid.ColumnSpan="2"
+                       Grid.RowSpan="2"/>
+
+            <StackPanel Grid.Column="1"
+                        Grid.Row="1" Grid.ColumnSpan="2">
+                <Label Content="Войдите в систему"
+                       Style="{DynamicResource HeadingLabel}"
+                       Margin="0 10 0 15"/>
+
+                <TextBox x:Name="LoginTB"
+                         Style="{DynamicResource DefaultTB}"
+                         materialDesign:HintAssist.Hint="Логин"
+                         BorderBrush="#FFFFFF"
+                         Foreground="#FFFFFF"
+                         HorizontalAlignment="Center"
+                         Width="300">
+                    <TextBox.Resources>
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FFFFFF"/>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <PasswordBox x:Name="PasswordPB"
+                             Style="{DynamicResource DefaultPB}"
+                             materialDesign:HintAssist.Hint="Пароль"
+                             BorderBrush="#FFFFFF"
+                             Foreground="#FFFFFF"
+                             HorizontalAlignment="Center"
+                             Width="300">
+                    <PasswordBox.Resources>
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FFFFFF"/>
+                    </PasswordBox.Resources>
+                </PasswordBox>
+
+                <Button x:Name="LogInBtn"
+                        Style="{DynamicResource DefaultBtn}"
+                        Content="Войти"
+                        Margin="0 30 0 30"
+                        Width="200"
+                        Height="50"
+                        Click="LogInBtn_Click"
+                        materialDesign:ButtonAssist.CornerRadius="17"/>
+
+                <Separator Margin="0 0 0 20"
+                           HorizontalAlignment="Center"
+                           Width="350">
+                    <Separator.RenderTransform>
+                        <ScaleTransform ScaleY="2" />
+                    </Separator.RenderTransform>
+                </Separator>
+
+                <Label Style="{DynamicResource FrontSeparatorLabel}"
+                    Content="Если вы забыли пароль - обратитесь к администратору."/>
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

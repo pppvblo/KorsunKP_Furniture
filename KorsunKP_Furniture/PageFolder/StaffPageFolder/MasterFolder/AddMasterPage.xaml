@@ -1,0 +1,142 @@
+﻿<Page x:Class="KorsunKP_Furniture.PageFolder.StaffPageFolder.MasterFolder.AddMasterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KorsunKP_Furniture.PageFolder.StaffPageFolder.MasterFolder"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="Добаление мастера">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BackBtn"
+                materialDesign:ButtonAssist.CornerRadius="7" Cursor="Hand"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="Назад в список"
+                Foreground="#F9F9F9"
+                Width="180"
+                Height="50"
+                Click="BackBtn_Click"
+                Style="{DynamicResource DefaultBtn}"
+                Background="#1c1c1c"/>
+
+        <Border x:Name="FirstBorder" Grid.Row="1"
+                Visibility="Visible">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="AddLastNameMasterTB"
+                         materialDesign:HintAssist.Hint="Фамилия*"
+                         Grid.Row="1" MaxLength="70"
+                         Grid.Column="1"/>
+
+                <TextBox x:Name="AddFirstNameMasterTB"
+                         materialDesign:HintAssist.Hint="Имя*"
+                         Grid.Row="3" MaxLength="70"
+                         Grid.Column="1"/>
+
+                <TextBox x:Name="AddMiddleNameMasterTB"
+                         materialDesign:HintAssist.Hint="Отчество"
+                         Grid.Row="5" MaxLength="70"
+                         Grid.Column="1"/>
+
+                <DatePicker x:Name="DateOfBirthMasterTB"
+                             materialDesign:HintAssist.Hint="Дата рождения*"
+                            Grid.Row="7" Grid.Column="1"/>
+
+                <TextBox x:Name="EmailMasterTB"
+                         materialDesign:HintAssist.Hint="Email*"
+                         Grid.Row="9" MaxLength="70"
+                         Grid.Column="1"/>
+
+                <TextBox x:Name="PhoneNumberMasterTB"
+                         materialDesign:HintAssist.Hint="Номер телефона*"
+                         Grid.Row="11" MaxLength="17"
+                         Grid.Column="1"/>
+
+                <ComboBox x:Name="StatusWorkMasterCB"
+                          materialDesign:HintAssist.Hint="Статус мастера*"
+                          Grid.Row="13"
+                          Grid.Column="1"
+                          SelectedValuePath="IdStatusWorkMaster"
+                          SelectedItem="{Binding StatusWorkMaster}"
+                          DisplayMemberPath="StatusWorkMasterName"/>
+                <!--<Image x:Name="StatusWorkMasterPIC"
+                         Grid.Row="13" 
+                         Grid.Column="2" 
+                         Source="/ResourceFolder/ImageFolder/ADD_Vol2.png"
+                         Width="35"
+                         HorizontalAlignment="Center"
+                         MouseLeftButtonDown="StatusWorkMasterPIC_MouseLeftButtonDown"/>-->
+
+                <Button x:Name="PhotoMasterPIC"
+                        Width="250"
+                        Height="50"
+                        Grid.Row="11" 
+                        Grid.Column="3" 
+                        Click="PhotoMasterPIC_Click"
+                        BorderBrush="#1c1c1c"
+                        materialDesign:ButtonAssist.CornerRadius="7" Cursor="Hand"
+                        Style="{DynamicResource DefaultBtn}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/ResourceFolder/ImageFolder/Add_Photo.png" 
+                       Width="40"/>
+                        <TextBlock Text="Загрузить фото"
+                                   Style="{DynamicResource ButtonTextBlock}"/>
+                    </StackPanel>
+                </Button>
+
+                <Image x:Name="ImageMaster"
+                       Grid.Row="1"
+                       Grid.Column="3"
+                       Grid.RowSpan="7"
+                       Width="300"/>
+
+                <Button x:Name="SaveMasterBtn"
+                Grid.Column="3"
+                Grid.Row="13"
+                HorizontalAlignment="Center"
+                Content="Сохранить"
+                Width="230"
+                Height="50"
+                Click="SaveMasterBtn_Click"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="7" Cursor="Hand"
+                Style="{DynamicResource ButtonADD}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

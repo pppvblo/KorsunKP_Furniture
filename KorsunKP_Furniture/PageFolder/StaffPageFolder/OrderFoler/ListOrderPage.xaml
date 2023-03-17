@@ -1,0 +1,243 @@
+﻿<Page x:Class="KorsunKP_Furniture.PageFolder.StaffPageFolder.OrderFoler.ListOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KorsunKP_Furniture.PageFolder.StaffPageFolder.OrderFoler"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="Список заказов">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" 
+                    Grid.Column="1"
+                    HorizontalAlignment="Center">
+
+            <Label Content="Поиск" 
+               Foreground="#000000"
+               Style="{DynamicResource FrontSeparatorLabel}"/>
+
+            <TextBox x:Name="SearchTb" 
+                 TextChanged="SearchTb_TextChanged" 
+                 Width="350"
+                 Height="50"
+                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"/>
+
+            <Button x:Name="AddOrderBtn"
+                    Style="{DynamicResource DefaultBtn}"
+                    Height="40"
+                    Foreground="#1C1C1C"
+                    Width="240"
+                    BorderBrush="#1c1c1c"
+                    Margin="50 0 0 0"
+                    materialDesign:ButtonAssist.CornerRadius="7" Cursor="Hand"
+                    Click="AddOrderBtn_Click">
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/ResourceFolder/ImageFolder/ADDmain.png"
+                                   Width="30"/>
+                    <TextBlock Text="Добавить заказ"
+                                Style="{DynamicResource ButtonTextBlock}"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <ListView x:Name="ListOrderLB" 
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  BorderBrush="#1c1c1c"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактировать" Name="EditOrderMI"
+                              Click="EditOrderMI_Click"/>
+                    <MenuItem Header="Удалить" Name="DeleteOrderMI"
+                              Click="DeleteOrderMI_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Text="ФИО клиента" 
+                                   FontWeight="Bold"
+                                   Grid.Row="1"                                  
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                                   FontWeight="Medium"
+                                   TextWrapping="Wrap"
+                                   Style="{DynamicResource ListTextBlock}">
+                            <TextBlock.Text>
+                                <MultiBinding 
+                                    StringFormat="{}{0} {1} {2}">
+                                    <Binding Path="Client.LastNameClient"/>
+                                    <Binding Path="Client.FistNameClient"/>
+                                    <Binding Path="Client.MiddleNameClient"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+
+                        <TextBlock Text="Номер телефона"
+                                   FontWeight="Bold"
+                                   Grid.Row="2"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Text="{Binding Client.PhoneNumberClient}"
+                                   FontWeight="Medium"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   Style="{DynamicResource ListTextBlock}"/>
+
+                        <TextBlock Text="Адрес"
+                                   FontWeight="Bold"
+                                   Grid.Row="3"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1"
+                                   FontWeight="Medium"
+                                   TextWrapping="Wrap"
+                                   Height="100"
+                                   Style="{DynamicResource ListTextBlock}">
+                            <TextBlock.Text>
+                                <MultiBinding 
+                                    StringFormat="{}Регион: {0}, Город: {1}, Улица: {2}, Дом: {3}, Корпус: {4}, Квартира: {5}">
+                                    <Binding Path="Address.Region.RegionName"/>
+                                    <Binding Path="Address.City.CityName"/>
+                                    <Binding Path="Address.Street.StreetName"/>
+                                    <Binding Path="Address.House"/>
+                                    <Binding Path="Address.Frame"/>
+                                    <Binding Path="Address.Flat"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+
+                        <TextBlock Text="Мебель"
+                                   FontWeight="Bold"
+                                   Grid.Row="4"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Text="{Binding Furniture.FurnitureName}"
+                                   FontWeight="Medium"
+                                   Grid.Column="1"
+                                   Grid.Row="4"
+                                   Style="{DynamicResource ListTextBlock}"/>
+
+                        <TextBlock Text="Статус заказа"
+                                   FontWeight="Bold"
+                                   Grid.Row="5"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Text="{Binding OrderStatus.OredrStatusName}"
+                                   FontWeight="Medium"
+                                   TextWrapping="Wrap"
+                                   Grid.Column="1"
+                                   Grid.Row="5"
+                                   Style="{DynamicResource ListTextBlock}"/>
+
+                        <TextBlock Text="Мастер"
+                                   FontWeight="Bold"
+                                   Grid.Row="6"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Grid.Row="6" Grid.Column="1"
+                                   FontWeight="Medium"
+                                   TextWrapping="Wrap"
+                                   Style="{DynamicResource ListTextBlock}">
+                            <TextBlock.Text>
+                                <MultiBinding 
+                                    StringFormat="{}{0} {1} {2}">
+                                    <Binding Path="Master.LastNameMaster"/>
+                                    <Binding Path="Master.FirstNameMaster"/>
+                                    <Binding Path="Master.MiddleNameMaster"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+
+                        <TextBlock Text="Номер заказа"
+                                   FontWeight="Bold"
+                                   Grid.Row="7"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Text="{Binding OrderNumber}"
+                                   FontWeight="Medium"
+                                   Grid.Column="1"
+                                   Grid.Row="7"
+                                   Style="{DynamicResource ListTextBlock}"/>
+
+                        <TextBlock Text="Время"
+                                   FontWeight="Bold"
+                                   Grid.Row="8"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Text="{Binding OrderTime}"
+                                   FontWeight="Medium"
+                                   Grid.Column="1"
+                                   Grid.Row="8"
+                                   Style="{DynamicResource ListTextBlock}"/>
+
+                        <TextBlock Text="Дата"
+                                   FontWeight="Bold"
+                                   Grid.Row="9"
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Text="{Binding OrderDate,StringFormat=dd.MM.yyyy}"
+                                   FontWeight="Medium"
+                                   Grid.Column="1"
+                                   Grid.Row="9"
+                                   Style="{DynamicResource ListTextBlock}"/>
+
+                        <TextBlock Text="Заметка"
+                                   FontWeight="Bold"
+                                   Grid.Row="10"                                  
+                                   Style="{DynamicResource ListTextBlock}"/>
+                        <TextBlock Text="{Binding OrderNote}"
+                                   Grid.Column="1"
+                                   TextWrapping="Wrap"
+                                   FontWeight="Medium"
+                                   Grid.Row="10"
+                                   Grid.RowSpan="3"                               
+                                   Grid.ColumnSpan="3"
+                                   Style="{DynamicResource ListTextBlock}"/>
+
+                        
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+
+
+    </Grid>
+</Page>

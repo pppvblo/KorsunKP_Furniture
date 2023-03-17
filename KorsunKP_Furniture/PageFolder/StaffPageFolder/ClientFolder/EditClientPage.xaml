@@ -1,0 +1,105 @@
+﻿<Page x:Class="KorsunKP_Furniture.PageFolder.StaffPageFolder.ClientFolder.EditClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KorsunKP_Furniture.PageFolder.StaffPageFolder.ClientFolder"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="Редактирование клиента">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BackBtn"
+                materialDesign:ButtonAssist.CornerRadius="7" Cursor="Hand"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="Назад в список"
+                Foreground="#F9F9F9"
+                Width="180"
+                Height="50"
+                Click="BackBtn_Click"
+                Style="{DynamicResource DefaultBtn}"
+                Background="#1c1c1c"/>
+
+        <Border x:Name="FirstBorder" Grid.Row="1"
+                Visibility="Visible">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="10"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="5"/>
+
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="LastNameClientTB"
+                         materialDesign:HintAssist.Hint="Фамилия*"
+                         Grid.Row="1" MaxLength="70"
+                         Grid.Column="2"
+                         Text="{Binding LastNameClient}"/>
+
+                <TextBox x:Name="FirstNameClientTB"
+                         materialDesign:HintAssist.Hint="Имя*"
+                         Grid.Row="3" MaxLength="70"
+                         Grid.Column="2"
+                         Text="{Binding FistNameClient}"/>
+
+                <TextBox x:Name="MiddleNameClientTB"
+                         materialDesign:HintAssist.Hint="Отчество"
+                         Grid.Row="5" MaxLength="70"
+                         Grid.Column="2"
+                         Text="{Binding MiddleNameClient}"/>
+
+                <TextBox x:Name="PhoneNumberClientTB"
+                         materialDesign:HintAssist.Hint="Телефон"
+                         Grid.Row="7" MaxLength="70"
+                         Grid.Column="2"
+                         Text="{Binding PhoneNumberClient}"/>
+
+                <TextBox x:Name="EmailClientTB"
+                         materialDesign:HintAssist.Hint="Email"
+                         Grid.Row="9" MaxLength="70"
+                         Grid.Column="2"
+                         Text="{Binding EmailClient}"/>
+
+
+                <Button x:Name="SaveClientBtn"
+                Grid.Column="2"
+                Grid.Row="13"
+                HorizontalAlignment="Center"
+                Content="Сохранить"
+                Width="230"
+                Height="50"
+                Click="SaveClientBtn_Click"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="7" Cursor="Hand"
+                Style="{DynamicResource ButtonADD}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
